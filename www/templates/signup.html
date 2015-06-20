@@ -1,0 +1,32 @@
+<ion-view view-title="Sign up">
+    <ion-content class="padding">
+
+        <form>
+            <div class="list">
+                <label class="item item-input">
+                    <input type="tel" placeholder="Mobile number" ng-model="data.username">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="data.password">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Re-enter Password" ng-model="data.repassword">
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Blood Group
+                    </div>
+                    <select ng-model="data.bloodGroup">
+                        <option>Blue</option>
+                        <option selected>Green</option>
+                        <option>Red</option>
+                    </select>
+                </label>
+
+            </div>
+            <button class="button button-royal button-block" ng-click="signup()">Sign up</button>
+        </form>
+
+    </ion-content>
+</ion-view>

@@ -45,4 +45,29 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('SignupCtrl', function($scope,$ionicPopup, $state){
+  $scope.data = {};
+  $scope.signup = function() {
+    console.log('in here');
+    console.log($scope.data.bloodGroup);
+    console.log($scope.data.username);
+  }
+})
+
+.controller('LoginCtrl', function($scope,$ionicPopup, $state, LoginService){
+    $scope.data = {};
+    $scope.login = function() {
+
+      LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+        $state.go('app.playlists');
+      }).error(function(data) {
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login failed!',
+          template: 'Please check your credentials!'
+        });
+      });
+
+    }
 });
