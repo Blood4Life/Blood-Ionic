@@ -27,9 +27,10 @@ angular.module('starter.services', [])
     }
 })
 
-.service('LoginService', function($q) {
+.service('LoginService', function($q, UserDataService) {
     return {
         loginUser: function(name, pw) {
+            //console.log(UserDataService.getAllUsers());
             var deferred = $q.defer();
             var promise = deferred.promise;
 
