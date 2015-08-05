@@ -35,12 +35,12 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+    { title: 'Donor1', id: 1 },
+    { title: 'Donor2', id: 2 },
+    { title: 'Donor3', id: 3 },
+    { title: 'Donor4', id: 4 },
+    { title: 'Donor5', id: 5 },
+    { title: 'Donor6', id: 6 }
   ];
 })
 
@@ -61,7 +61,8 @@ angular.module('starter.controllers', [])
     $scope.login = function() {
 
       LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-        $state.go('app.playlists');
+      //  $state.go('app.playlists');
+        $state.go('app.donors');
       }).error(function(data) {
         var alertPopup = $ionicPopup.alert({
           title: 'Login failed!',
