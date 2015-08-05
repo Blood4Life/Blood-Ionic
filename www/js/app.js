@@ -59,7 +59,8 @@ angular.module('blood-ionic', ['ionic', 'starter.controllers','starter.services'
         url: "/donors",
         views: {
           'menuContent': {
-            templateUrl: "templates/donors.html"
+            templateUrl: "templates/donors.html",
+            controller: 'PlaylistsCtrl'
           }
         }
       });

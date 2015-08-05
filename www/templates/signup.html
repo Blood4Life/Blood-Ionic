@@ -6,6 +6,30 @@
                 <label class="item item-input">
                     <input type="tel" placeholder="Mobile number" ng-model="data.username">
                 </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Blood Group
+                    </div>
+                    <select ng-model="data.bloodGroup">
+                        <option>B +</option>
+                        <option selected>B -</option>
+                        <option>AB +</option>
+                        <option>AB -</option>
+                        <option>A -</option>
+                        <option>A +</option>
+                        <option>O -</option>
+                        <option>O +</option>
+                    </select>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="First Name" ng-model="data.firstName">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Last Name" ng-model="data.lastName">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Email Address" ng-model="data.emailAddress">
+                </label>
                 <label class="item item-input">
                     <input type="password" placeholder="Password" ng-model="data.password">
                 </label>
@@ -13,18 +37,8 @@
                     <input type="password" placeholder="Re-enter Password" ng-model="data.repassword">
                 </label>
 
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Blood Group
-                    </div>
-                    <select ng-model="data.bloodGroup">
-                        <option>Blue</option>
-                        <option selected>Green</option>
-                        <option>Red</option>
-                    </select>
-                </label>
-
             </div>
+            <ion-checkbox ng-model="isChecked">I am willing Donor !!</ion-checkbox>
             <button class="button button-royal button-block" ng-click="signup()">Sign up</button>
         </form>
 
