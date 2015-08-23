@@ -50,7 +50,7 @@ angular.module('blood-ionic', ['ionic', 'starter.controllers','starter.services'
         url: "/profile",
         views: {
           'menuContent': {
-            templateUrl: "templates/profile.html"
+            templateUrl: "templates/profile.html"//exists
           }
         }
       });
@@ -59,22 +59,22 @@ angular.module('blood-ionic', ['ionic', 'starter.controllers','starter.services'
         url: "/donors",
         views: {
           'menuContent': {
-            templateUrl: "templates/donors.html",
-            controller: 'PlaylistsCtrl'
+            templateUrl: "templates/donors.html"
           }
         }
       });
 
-      $stateProvider
+      $stateProvider.state('app.search', {
+        url: "/search",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/search.html"
+          }
+        }
+      });
 
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
+      //not needed beyond this..delete at some point!
+      $stateProvider
 
   .state('app.browse', {
     url: "/browse",
