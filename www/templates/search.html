@@ -1,5 +1,82 @@
 <ion-view view-title="Search">
-  <ion-content>
-    <h1>Search</h1>
-  </ion-content>
+    <ion-content>
+
+        <form>
+            <div class="list">
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="B+">
+
+                    <div class="item-content">
+                        B+
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="B-">
+
+                    <div class="item-content">
+                        B-
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="AB+">
+
+                    <div class="item-content">
+                        AB+
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="AB-">
+
+                    <div class="item-content">
+                        AB-
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="A+">
+
+                    <div class="item-content">
+                        A+
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="A-">
+
+                    <div class="item-content">
+                        A-
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="O+">
+
+                    <div class="item-content">
+                        O+
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="selectedGroup.value" value="O-">
+
+                    <div class="item-content">
+                        O-
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+            </div>
+            <button class="button button-royal button-block" ng-click="searchDonors()">Search Donors</button>
+        </form>
+
+    </ion-content>
 </ion-view>
