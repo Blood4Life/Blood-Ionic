@@ -61,7 +61,8 @@ angular.module('starter.controllers', [])
         $scope.searchDonors = function () {
             var selectedBloodGroup = $scope.selectedGroup.value;
             var searchResult = SearchDonorsService.searchDonors(selectedBloodGroup);
-            //map
+
+            $state.go('app.map');//TODO: Pass searchResult to map
 
         }
     })
@@ -81,4 +82,35 @@ angular.module('starter.controllers', [])
             });
 
         }
+    })
+
+    .controller('MapCtrl', function($scope, $ionicSideMenuDelegate, $cordovaGeolocation){
+
+        $ionicSideMenuDelegate.canDragContent(false)
+        $scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 8 };
+        $scope.options = {scrollwheel: true};
+        $scope.markericon = "img/ionic.png";
+        $scope.markers = []
+        // get position of user and then set the center of the map to that position
+        $cordovaGeolocation
+            .getCurrentPosition()
+            .then(function (position) {
+                var lat  = position.coords.latitude
+                var long = position.coords.longitude
+                $scope.map = {center: {latitude: lat, longitude: long}, zoom: 16 };
+                //just want to create this loop to make more markers
+                for(var i=0; i<3; i++) {
+                    $scope.markers.push({
+                        id: $scope.markers.length,
+                        latitude: lat + (i * 0.002),
+                        longitude: long + (i * 0.002),
+                        icon: $scope.markericon,
+                        title: 'm' + i
+                    })
+                }
+
+            }, function(err) {
+                // error
+                console.log(err);
+            });
     });
