@@ -56,13 +56,13 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('SearchDonorsCtrl', function ($scope, $state, SearchDonorsService) {
+    .controller('SearchDonorsCtrl', function ($scope, $state, SearchDonorsService, $stateParams) {
         $scope.selectedGroup = {};
         $scope.searchDonors = function () {
             var selectedBloodGroup = $scope.selectedGroup.value;
             var searchResult = SearchDonorsService.searchDonors(selectedBloodGroup);
-
-            $state.go('app.map');//TODO: Pass searchResult to map
+            $stateParams.donorList = searchResult;
+            $state.go('app.map', {'donors':searchResult});//TODO: Pass searchResult to map
 
         }
     })
@@ -84,31 +84,44 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('MapCtrl', function($scope, $ionicSideMenuDelegate, $cordovaGeolocation){
+    .controller('MapCtrl', function($scope, $ionicSideMenuDelegate, $cordovaGeolocation, $stateParams, $ionicLoading){
+
+        // Setup the loader
+        $ionicLoading.show({
+            content: 'Loading',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+        });
+
+        var donors = $stateParams.donors;
 
         $ionicSideMenuDelegate.canDragContent(false)
-        $scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 8 };
+        //$scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 8 };
         $scope.options = {scrollwheel: true};
         $scope.markericon = "img/ionic.png";
         $scope.markers = []
         // get position of user and then set the center of the map to that position
-        $cordovaGeolocation
-            .getCurrentPosition()
+        $cordovaGeolocation.getCurrentPosition()
             .then(function (position) {
                 var lat  = position.coords.latitude
                 var long = position.coords.longitude
                 $scope.map = {center: {latitude: lat, longitude: long}, zoom: 16 };
                 //just want to create this loop to make more markers
-                for(var i=0; i<3; i++) {
+
+                for(var i=0; i<donors.length; i++) {
+                    var donor = donors[i];
                     $scope.markers.push({
                         id: $scope.markers.length,
-                        latitude: lat + (i * 0.002),
-                        longitude: long + (i * 0.002),
+                        latitude: donor.workAddress.coordinates.lat,
+                        longitude: donor.workAddress.coordinates.lon,
                         icon: $scope.markericon,
                         title: 'm' + i
                     })
                 }
 
+                $ionicLoading.hide();
             }, function(err) {
                 // error
                 console.log(err);

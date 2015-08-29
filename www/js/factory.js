@@ -9,7 +9,15 @@ angular.module('starter.factories', [])
                 'emailAddress': 'sripaulca@outlook.com',
                 'bloodGroup': 'A+',
                 'password': 'SteelBird',
-                'workAddress': {},
+                'workAddress': {
+                    actual : {
+
+                    },
+                    coordinates: {
+                        'lat' : 37.399769,
+                        'lon' : -121.944188
+                    }
+                },
                 'homeAddress': {},
                 'isWillingDonor': true
             },
@@ -20,7 +28,15 @@ angular.module('starter.factories', [])
                 'emailAddress': 'mthyagarajan@pp.com',
                 'bloodGroup': 'B+',
                 'password': 'Madhan',
-                'workAddress': {},
+                'workAddress': {
+                    actual : {
+
+                    },
+                    coordinates: {
+                        'lat' : 37.412697,
+                        'lon' : -121.959965
+                    }
+                },
                 'homeAddress': {},
                 'isWillingDonor': true
             },
@@ -31,7 +47,15 @@ angular.module('starter.factories', [])
                 'emailAddress': 'shyama@pp.com',
                 'bloodGroup': 'B+',
                 'password': 'Madhan',
-                'workAddress': {},
+                'workAddress': {
+                    actual : {
+
+                    },
+                    coordinates: {
+                        'lat' : 37.557651,
+                        'lon' : -121.969085
+                    }
+                },
                 'homeAddress': {},
                 'isWillingDonor': false
             },
@@ -42,7 +66,15 @@ angular.module('starter.factories', [])
                 'emailAddress': 'sachin@pp.com',
                 'bloodGroup': 'A+',
                 'password': 'Madhan',
-                'workAddress': {},
+                'workAddress': {
+                    actual : {
+
+                    },
+                    coordinates: {
+                        'lat' : 37.384782,
+                        'lon' : -121.945147
+                    }
+                },
                 'homeAddress': {},
                 'isWillingDonor': true
             },
@@ -53,7 +85,15 @@ angular.module('starter.factories', [])
                 'emailAddress': 'dhoni@pp.com',
                 'bloodGroup': 'B+',
                 'password': 'Madhan',
-                'workAddress': {},
+                'workAddress': {
+                    actual : {
+
+                    },
+                    coordinates: {
+                        'lat' : 37.335372,
+                        'lon' : -121.890299
+                    }
+                },
                 'homeAddress': {},
                 'isWillingDonor': false
             }

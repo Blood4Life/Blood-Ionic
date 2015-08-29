@@ -93,6 +93,7 @@ angular.module('blood-ionic', ['ionic', 'starter.controllers','starter.services'
 
         $stateProvider.state('app.map', {
             url: "/map",
+            params : {donors : null},
             views: {
                 'menuContent': {
                     templateUrl: "templates/map.html",
