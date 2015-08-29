@@ -1,14 +1,17 @@
 <ion-view view-title="Nearby Donors">
 
-    <ion-content data-tap-disabled="true">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="sendRequest()">
+            <b>Send Request</b>
+        </button>
+    </ion-nav-buttons>
 
+    <ion-content data-tap-disabled="true">
         <div id="map_canvas">
             <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
                 <ui-gmap-markers models="markers" coords="'self'" icon="'icon'">
                 </ui-gmap-markers>
             </ui-gmap-google-map>
         </div>
-
     </ion-content>
-
 </ion-view>

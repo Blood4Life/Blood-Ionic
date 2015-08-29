@@ -98,7 +98,7 @@ angular.module('starter.controllers', [])
         var donors = $stateParams.donors;
 
         $ionicSideMenuDelegate.canDragContent(false)
-        //$scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 8 };
+        $scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 8 };
         $scope.options = {scrollwheel: true};
         $scope.markericon = "img/ionic.png";
         $scope.markers = []
@@ -126,4 +126,8 @@ angular.module('starter.controllers', [])
                 // error
                 console.log(err);
             });
+
+        $scope.sendRequest = function() {
+            console.log('send request called');
+        }
     });
