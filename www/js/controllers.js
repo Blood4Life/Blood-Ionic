@@ -47,12 +47,47 @@ angular.module('starter.controllers', [])
     .controller('PlaylistCtrl', function ($scope, $stateParams) {
     })
 
-    .controller('SignupCtrl', function ($scope, $ionicPopup, $state) {
+    .controller('SignupCtrl', function ($scope, $ionicPopup, $state, SignupService, ValidatorService) {
         $scope.data = {};
         $scope.signup = function () {
+
+            var user = new Parse.User();
+            user.set("username", $scope.data.mobileNumber);
+            user.set("password", $scope.data.password);
+            user.set("email", $scope.data.email);
+            user.set("firstName", $scope.data.firstName);
+            user.set("lastName", $scope.data.lastName);
+            user.set("bloodGroup", $scope.data.bloodGroup);
+            user.set("isWillingDonor", $scope.data.isWillingDonor)
+
+
+            user.signUp(null, {
+                success: function(user) {
+                    // Hooray! Let them use the app now.
+                    alert("success!");
+                },
+                error: function(user, error) {
+                    // Show the error message somewhere and let the user try again.
+                    alert("Error: " + error.code + " " + error.message);
+                }
+            });
+
+
+
+            /*console.log(JSON.stringify($scope.data));
             console.log('in here');
             console.log($scope.data.bloodGroup);
-            console.log($scope.data.username);
+            console.log($scope.data.username);*/
+            //TODO 1. Validate all input fields
+            //TODO 2. Check existing user
+            //TODO 3. If password and rePassword doesn't match, promt
+
+            /*var signUpData = $scope.data;
+
+            if(!ValidatorService.isPasswordSame(signUpData.password, signUpData.rePassword)) {
+                
+            }*/
+
         }
     })
 
@@ -71,7 +106,20 @@ angular.module('starter.controllers', [])
         $scope.data = {};
         $scope.login = function () {
 
-            LoginService.loginUser($scope.data.username, $scope.data.password).success(function (data) {
+
+            Parse.User.logIn($scope.data.username, $scope.data.password, {
+                success: function(user) {
+                    // Do stuff after successful login.
+                    console.log(user);
+                    alert("success!");
+                },
+                error: function(user, error) {
+                    // The login failed. Check error to see why.
+                    alert("error!");
+                }
+            });
+
+            /*LoginService.loginUser($scope.data.username, $scope.data.password).success(function (data) {
                 //if login is success, redirect to search page
                 $state.go('app.search');
             }).error(function (data) {
@@ -79,7 +127,7 @@ angular.module('starter.controllers', [])
                     title: 'Login failed!',
                     template: 'Please check your credentials!'
                 });
-            });
+            });*/
 
         }
     })

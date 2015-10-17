@@ -4,7 +4,7 @@
         <form>
             <div class="list">
                 <label class="item item-input">
-                    <input type="tel" placeholder="Mobile number" ng-model="data.username">
+                    <input type="tel" placeholder="Mobile number" ng-model="data.mobileNumber">
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
@@ -28,17 +28,17 @@
                     <input type="text" placeholder="Last Name" ng-model="data.lastName">
                 </label>
                 <label class="item item-input">
-                    <input type="password" placeholder="Email Address" ng-model="data.emailAddress">
+                    <input type="text" placeholder="Email Address" ng-model="data.email">
                 </label>
                 <label class="item item-input">
                     <input type="password" placeholder="Password" ng-model="data.password">
                 </label>
                 <label class="item item-input">
-                    <input type="password" placeholder="Re-enter Password" ng-model="data.repassword">
+                    <input type="password" placeholder="Re-enter Password" ng-model="data.rePassword">
                 </label>
 
             </div>
-            <ion-checkbox ng-model="isChecked">I am willing Donor !!</ion-checkbox>
+            <ion-checkbox ng-model="data.isWillingDonor">I am willing Donor !!</ion-checkbox>
             <button class="button button-royal button-block" ng-click="signup()">Sign up</button>
         </form>
 

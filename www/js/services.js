@@ -27,6 +27,14 @@ angular.module('starter.services', [])
         }
     })
 
+    .service('ValidatorService', function ($q) {
+        return {
+            isPasswordSame : function(password, rePassword) {
+                return password === rePassword;
+            }
+        }
+    })
+
     .service('LoginService', function ($q, UserDataFactory) {
         return {
             loginUser: function (name, pw) {

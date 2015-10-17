@@ -17,6 +17,8 @@ angular.module('blood-ionic', ['ionic', 'starter.controllers','starter.services'
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+            Parse.initialize("YeLbumWkWfcKts17YdFObdhHh7Bvn0Hp5PhZpmxq", "7xGSHfl8ebyizwL1c7T8UnrH8yAfFjXIWJb6seVc");
         });
     })
 
